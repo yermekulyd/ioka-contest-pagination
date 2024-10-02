@@ -73,8 +73,6 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const pages = getPageNumbers();
 
-  console.log("pages: ", pages);
-
   return (
     <ul className="pagination">
       {/* Button "Go back a few pages" */}

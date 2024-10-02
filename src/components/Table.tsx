@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "../data/mockData";
+import { User } from "../data/user";
 import "../styles/Table.scss";
 
 interface TableProps {
@@ -20,8 +20,8 @@ const Table: React.FC<TableProps> = ({ data }) => {
         {data.map((user) => (
           <tr key={user.id}>
             <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
+            <td>{user.firstName}</td>
+            <td>{user.age}</td>
           </tr>
         ))}
       </tbody>
