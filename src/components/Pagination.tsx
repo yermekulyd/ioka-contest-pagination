@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import usePagination from "../hooks/usePagination";
 import "../styles/Pagination.scss";
 
@@ -17,6 +17,17 @@ const Pagination: React.FC<PaginationProps> = ({
     usePagination({ totalPages });
 
   const activeButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 500);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (activeButtonRef.current) {
@@ -72,6 +83,33 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   const pages = getPageNumbers();
+
+  if (isMobile) {
+    // Adaptive layout for mobile devices
+    return (
+      <div className="pagination pagination--mobile">
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className="pagination__button"
+          aria-label="Previous page"
+        >
+          Previous
+        </button>
+        <span className="pagination__info">
+          {currentPage} / {totalPages}
+        </span>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className="pagination__button"
+          aria-label="Next page"
+        >
+          Next
+        </button>
+      </div>
+    );
+  }
 
   return (
     <ul className="pagination">
