@@ -1,6 +1,50 @@
-# Getting Started with Create React App
+# Pagination Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a responsive `React` application that implements a pagination component alongside a data table. The pagination component is built using `TypeScript` and `SCSS`, adhering to modern web development standards. It includes adaptive features for different screen sizes, ensuring a seamless user experience on both desktop and mobile devices.
+
+This README provides an overview of the project, instructions for setup and running, and highlights the key features implemented as part of the test assignment.
+
+![Project screenshot](./public/pagination-thumbnail.png)
+
+## Requirements
+
+- Separation of logic from UI
+- Pagination display
+- Custom responsive design
+
+## Navigation
+
+- Go forward 1 page
+- Go back 1 page
+- Go forward by several pages
+- Go back several pages
+
+## Part 2 - OOP Class
+
+- This class encapsulates the state and pagination methods
+- The class is independent of the framework
+
+# Setup and Installation
+
+## Prerequisites:
+
+- You need `Node.js` and `npm` installed on your machine.
+
+## Steps:
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd <repository-directory>
+```
+2. Install the dependencies:
+```bash
+npm install
+```
+3. Start the development server:
+```bash
+npm start
+```
 
 ## Available Scripts
 
@@ -28,19 +72,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
