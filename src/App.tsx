@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="app__title">Таблица пользователей!</h1>
+      <span className="app__title">Stage 2 ioka contest Frontend Engineer</span>
       <Table data={currentData} />
       <Pagination
         totalPages={totalPages}
