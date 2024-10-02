@@ -11,8 +11,9 @@ const Table: React.FC<TableProps> = ({ data }) => {
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>#</th>
           <th>Name</th>
+          <th>Surname</th>
           <th>Email</th>
         </tr>
       </thead>
@@ -21,7 +22,8 @@ const Table: React.FC<TableProps> = ({ data }) => {
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.firstName}</td>
-            <td>{user.age}</td>
+            <td>{user.lastName}</td>
+            <td>{user.email}</td>
           </tr>
         ))}
       </tbody>
