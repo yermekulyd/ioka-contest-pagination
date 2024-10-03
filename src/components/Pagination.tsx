@@ -30,9 +30,6 @@ const Pagination: React.FC<PaginationProps> = ({
   }, []);
 
   useEffect(() => {
-    if (activeButtonRef.current) {
-      activeButtonRef.current.focus();
-    }
     if (onPageChange) {
       onPageChange(currentPage);
     }
