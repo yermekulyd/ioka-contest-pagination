@@ -12,27 +12,33 @@ const BASE_URL = "https://dummyjson.com/users";
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentData, setCurrentData] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const totalPages = Math.ceil(USERS_LENGTH / ITEMS_PER_PAGE);
 
   useEffect(() => {
+    const fetchData = () => {
+      setIsLoading(true);
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+
+      fetch(`${BASE_URL}?limit=${ITEMS_PER_PAGE}&skip=${startIndex}`)
+        .then((res) => res.json())
+        .then((response) => {
+          setCurrentData(response.users);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          setIsLoading(false);
+        });
+    };
     fetchData();
   }, [currentPage]);
-
-  const fetchData = () => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-
-    fetch(`${BASE_URL}?limit=${ITEMS_PER_PAGE}&skip=${startIndex}`)
-      .then((res) => res.json())
-      .then((response) => {
-        setCurrentData(response.users);
-      });
-  };
 
   return (
     <div className="app">
       <span className="app__title">Stage 2 ioka contest Frontend Engineer</span>
-      <Table data={currentData} />
+      <Table data={currentData} isLoading={isLoading} />
       <Pagination
         totalPages={totalPages}
         step={STEP_SKIP}
